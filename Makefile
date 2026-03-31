@@ -15,7 +15,11 @@ else
 	endif
 endif
 
-SRC = src/main.c
+SRC = src/main.c       \
+      src/simulation.c  \
+      src/galaxy_init.c \
+      src/renderer.c    \
+      src/camera.c
 
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(LIBS)
