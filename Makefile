@@ -2,10 +2,10 @@ CC     = gcc
 CFLAGS = -Wall -std=c99 -O2
 
 ifeq ($(OS),Windows_NT)
-	TARGET = riftwalker.exe
+	TARGET = galaxy-sim.exe
 	LIBS   = -lraylib -lopengl32 -lgdi32 -lwinmm
 else
-	TARGET = riftwalker
+	TARGET = galaxy-sim
 	UNAME  := $(shell uname -s)
 	ifeq ($(UNAME),Darwin)
 		LIBS = -lraylib -framework OpenGL -framework Cocoa \
@@ -21,4 +21,4 @@ $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(LIBS)
 
 clean:
-	rm -f riftwalker riftwalker.exe
+	rm -f galaxy-sim galaxy-sim.exe
