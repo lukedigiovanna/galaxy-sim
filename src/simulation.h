@@ -13,4 +13,8 @@ typedef struct {
 ParticleSystem* particles_create(int capacity);
 void            particles_destroy(ParticleSystem *ps);
 
+/* Forward declaration — avoids circular include with quadtree.h */
+struct QuadTree;
+void simulation_step(ParticleSystem *ps, struct QuadTree *tree, float dt);
+
 #endif

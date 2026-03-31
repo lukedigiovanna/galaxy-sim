@@ -7,20 +7,24 @@
 static unsigned char palette[256][3];
 static int palette_built = 0;
 
-/* 5 color stops: t, r, g, b */
-static const float stops[5][4] = {
+/* 7 color stops: t, r, g, b
+   black → deep violet → crimson → orange → gold → pale yellow → white */
+static const float stops[7][4] = {
     { 0.00f,   0,   0,   0 },
-    { 0.25f,  10,  10,  80 },
-    { 0.60f,  60, 120, 220 },
-    { 0.85f, 180, 220, 255 },
+    { 0.08f,  50,   0,  80 },
+    { 0.25f, 160,  10,  60 },
+    { 0.45f, 220,  70,  10 },
+    { 0.65f, 255, 180,  20 },
+    { 0.85f, 255, 245, 160 },
     { 1.00f, 255, 255, 255 },
 };
 
 static void build_palette(void) {
+    int num_stops = (int)(sizeof(stops) / sizeof(stops[0]));
     for (int i = 0; i < 256; i++) {
         float t = (float)i / 255.0f;
         int seg = 0;
-        for (int s = 0; s < 4; s++) {
+        for (int s = 0; s < num_stops - 1; s++) {
             if (t >= stops[s][0]) seg = s;
         }
         float t0 = stops[seg][0];

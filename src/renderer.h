@@ -7,7 +7,7 @@
 
 #define GRID_W            640
 #define GRID_H            360
-#define DENSITY_LOG_SCALE 50.0f
+#define DENSITY_LOG_SCALE 20.0f
 
 typedef struct {
     float         *cells;

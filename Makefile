@@ -17,6 +17,7 @@ endif
 
 SRC = src/main.c       \
       src/simulation.c  \
+      src/quadtree.c    \
       src/galaxy_init.c \
       src/renderer.c    \
       src/camera.c
